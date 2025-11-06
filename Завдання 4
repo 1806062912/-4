@@ -1,0 +1,16 @@
+def find_longest_word():
+    # Користувач вводить список слів
+    words = input("Введіть слова через пробіл: ").split()
+    
+    if not words:
+        print("Список порожній!")
+        return
+    
+    # Пошук найдовшого слова
+    longest = max(words, key=len)
+    
+    # Вивід результату
+    print("Найдовше слово:", longest)
+
+# Виклик функції
+find_longest_word()
