@@ -1,0 +1,16 @@
+# Розмір матриці
+n = 7
+
+# Створюємо порожню матрицю n×n, заповнену нулями
+matrix = [[0]*n for _ in range(n)]
+
+# Визначаємо кількість "кілець" — у 7×7 їх буде 4
+for layer in range(n // 2 + 1):
+    value = 4 + layer  # значення для кожного шару
+    for i in range(layer, n - layer):
+        for j in range(layer, n - layer):
+            matrix[i][j] = value
+
+# Виводимо матрицю
+for row in matrix:
+    print(*row)
