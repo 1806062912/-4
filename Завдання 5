@@ -1,0 +1,28 @@
+def find_missing_products():
+    # Введення повного набору товарів
+    all_products = set(input("Введіть усі товари через пробіл: ").split())
+    
+    # Кількість магазинів
+    m = int(input("Введіть кількість магазинів: "))
+    
+    # Список (або множини) асортиментів магазинів
+    stores = []
+    for i in range(m):
+        items = set(input(f"Введіть товари магазину {i+1}: ").split())
+        stores.append(items)
+    
+    # Об’єднуємо всі товари з усіх магазинів
+    all_in_stores = set().union(*stores)
+    
+    # Знаходимо товари, яких немає в жодному магазині
+    missing = all_products - all_in_stores
+    
+    # Якщо чомусь не вдалося працювати з множиною — перетворимо через список
+    if not isinstance(missing, set):
+        missing = set(list(missing))
+    
+    # Виведення результату
+    print("Продукти, яких немає в жодному магазині:", missing)
+
+# Виклик функції
+find_missing_products()
