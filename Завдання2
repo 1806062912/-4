@@ -1,0 +1,23 @@
+# Розмір матриці
+n = 7
+
+# Створюємо порожню матрицю n×n, заповнену нулями
+matrix = [[0]*n for _ in range(n)]
+
+# Формуємо "кільця" навколо центру
+for layer in range(n // 2 + 1):
+    value = 4 + layer  # число для цього кільця
+
+    # Верхній та нижній рядок шару
+    for j in range(layer, n - layer):
+        matrix[layer][j] = value                # верх
+        matrix[n - layer - 1][j] = value        # низ
+
+    # Лівий та правий стовпець шару
+    for i in range(layer, n - layer):
+        matrix[i][layer] = value                # ліво
+        matrix[i][n - layer - 1] = value        # право
+
+# Виводимо матрицю
+for row in matrix:
+    print(*row)
